@@ -1,0 +1,160 @@
+:root {
+  --darkblue:#163063;
+  --lightblue:#789EE8;
+  --centerblue:#326EE4;
+  --grayblue:#344463;
+  --justblue:#2754B0;
+  --extra1:black;
+  --extra2:white;
+  --extra3:gray;
+}
+
+#ecasa {
+  color: var(--extra1);
+  font-size: 18px;
+  transition: font-size 300ms;
+}
+
+#ascundema {
+  display: none;
+}
+
+.menu {
+  display: inline-block;
+  position: sticky;
+  top: 50px;
+  width: 100%;
+  margin-top: 0;
+  background-color: transparent;
+  margin-bottom: 0;
+  z-index: 6;
+}
+
+.meniu {
+  display: none;
+  animation: apare 1s;
+  transform-origin: 0% 0%;
+  background-color: var(--justblue);
+  padding: 0;
+  margin: 0;
+}
+
+@keyframes apare {
+  0% {
+    transform: scaleX(0);
+  }
+
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.button_menu a {
+  text-decoration: none;
+  color: var(--extra1);
+  transition: font-size 900ms;
+  font-size: 15px;
+
+  &:hover {
+    font-size: 22px;
+  }
+}
+
+.submeniu {
+  display: none;
+  background: var(--justblue);
+  position: sticky;
+  height: auto;
+  padding: 0;
+  animation: apare2 1s;
+  transform-origin: 0% 0%;
+
+  li {
+    list-style-type: none;
+    margin-top: 15px;
+    padding: 0;
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    font-size: 16px;
+
+    a {
+      text-decoration: none;
+      color: var(--extra1);
+      width: 100%;
+    }
+
+    position: relative;
+    width: 100%;
+
+    &::after {
+      position: absolute;
+      content: "";
+      text-align: center;
+      width: 100%;
+      height: 50px;
+      top: -20px;
+      left: 0;
+      pointer-events: none;**
+      background: transparent;
+      box-shadow: 0 0 0 0 transparent;
+      border-bottom: transparent;
+      border-top: transparent;
+      transition: transform 0.5s;
+      transform: scaleY(0);
+      transform-origin: right;
+    }
+
+    &:hover::after {
+      transform: scaleY(1);
+      transform-origin: top;
+    }
+  }
+}
+
+@keyframes apare2 {
+  0% {
+    transform: scaleY(0);
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+.meniu {
+  > li {
+    display: inline;
+    list-style-type: none;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+  }
+
+  li button {
+    border: transparent;
+    height: 100%;
+    background: transparent;
+  }
+}
+
+#magazin:hover .submeniu {
+  display: grid;
+}
+
+#hamburger {
+  display: block;
+  position: sticky;
+  top: 0;
+  font-size: 50px;
+  background-color: var(--justblue);
+}
+
+#ch-menu {
+  display: none;
+
+  &:checked + .meniu {
+    display: flex;
+    flex-direction: column;
+  }
+}

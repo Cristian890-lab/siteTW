@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../fragmente/meta")%>
+    <link href="/resurse/css/general-mare.css" rel="stylesheet" type="text/css">
+    <link href="/resurse/css/general-mediu.css" rel="stylesheet" type="text/css" media="screen and (max-width:1200px)">
+    <link href="/resurse/css/general-mic.css" rel="stylesheet" type="text/css" media="screen and (max-width:500px)">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+    <link rel="stylesheet" media="print" href="/resurse/css/print.css">
+    <link rel="stylesheet" href="/resurse/css/video.css">
+    <title>AutoShop</title>
+</head>
+<body>
+<%- include("../fragmente/header")%>
+<main>
+    <section id="ghid">
+        <p>Here's a guide on how to check your tire wear:</p>
+        <video id="video" controls preload="auto" poster="/resurse/imagini/video.jpg">
+          <source src="/resurse/video/ghid.mp4" type="video/mp4">
+          <source src="/resurse/video/ghid.ogv" type="video/ogv">
+          <track label="Romana" kind="captions" srclang="ro" src="/resurse/video/tracks/car-ro.vtt" default>
+          <track label="English" kind="captions" srclang="en" src="/resurse/video/tracks/car-en.vtt">
+        </video>
+    </section>
+    <div id="watermark">
+        <p><b>Trocaru</b></p>
+        <p><b>Cristian-Bogdan</b></p>
+    </div>
+</main>
+<%- include("../fragmente/footer")%>
+</body>
+</html>

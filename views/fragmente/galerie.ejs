@@ -1,0 +1,57 @@
+<section id="galerie">
+    <%var how_many_photos=0;%>
+    <h3 id="gallery0">Gallery</h3>
+    <% for (let imag of locals.imagini){
+        const ora = new Date();
+        if(how_many_photos<10){
+             if(imag.sfert_ora ==='1' && ora.getMinutes()>0 && ora.getMinutes()<16){%>
+                <figure class="gallery1">
+                    <picture>
+                        <source srcset="<%- imag.mic %>" media="(max-width:500px)"/>
+                        <img src=<%- imag.mare %> alt="<%imag.alt%>" title="<%imag.text_descriere%>">
+                    </picture>
+                    <figcaption><%-imag.titlu%></figcaption>
+                </figure>
+                <%how_many_photos++;
+                if(how_many_photos ===4 || how_many_photos ===6){%>
+                     <div class="gallery1"></div>
+           <%}}
+           else if(imag.sfert_ora ==='2' && ora.getMinutes()>15 && ora.getMinutes()<31){%>
+                <figure class="gallery1">
+                    <picture>
+                        <source srcset="<%- imag.mic %>" media="(max-width:500px)"/>
+                        <img src=<%- imag.mare %> alt="<%imag.alt%>" title="<%imag.text_descriere%>">
+                    </picture>
+                    <figcaption><%-imag.titlu%></figcaption>
+                </figure>
+                <%how_many_photos++;
+                if(how_many_photos ===4 || how_many_photos ===6){%>
+                    <div class="gallery1"></div>
+                <%}}
+           else if(imag.sfert_ora ==='3' && ora.getMinutes()>30 && ora.getMinutes()<46){%>
+                <figure class="gallery1">
+                    <picture>
+                        <source srcset="<%- imag.mic %>" media="(max-width:500px)"/>
+                        <img src=<%- imag.mare %> alt="<%imag.alt%>" title="<%imag.text_descriere%>">
+                    </picture>
+                    <figcaption><%-imag.titlu%></figcaption>
+                </figure>
+                <%how_many_photos++;
+                if(how_many_photos ===4 || how_many_photos ===6){%>
+                    <div class="gallery1"></div>
+                <%}}
+           else if(imag.sfert_ora ==='4' && ora.getMinutes()>45 && ora.getMinutes()<61){%>
+                <figure class="gallery1">
+                    <picture>
+                        <source srcset="<%- imag.mic %>" media="(max-width:500px)"/>
+                        <img src=<%- imag.mare %> alt="<%imag.alt%>" title="<%imag.text_descriere%>">
+                    </picture>
+                    <figcaption><%-imag.titlu%></figcaption>
+                </figure>
+                <%how_many_photos++;
+                if(how_many_photos ===4 || how_many_photos ===6){%>
+                    <div class="gallery1" id="spatiere"></div>
+                <%}}
+        }
+}%>
+</section>

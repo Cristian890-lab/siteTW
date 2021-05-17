@@ -1,0 +1,281 @@
+@import "nav-mediu.css";
+/*Paleta De Culori*/
+:root{
+    --darkblue:#163063;
+    --lightblue:#789EE8;
+    --centerblue:#326EE4;
+    --grayblue:#344463;
+    --justblue:#2754B0;
+    --extra1: black;
+    --extra2: white;
+    --extra3: gray;
+}
+
+
+html{
+    font-size: 15px;
+    background-color: var(--extra3);
+}
+
+h1{
+    font-size: 2.1rem;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Grid */
+
+header{
+    background: var(--justblue);
+}
+.zona1{
+    background: var(--extra2);
+    grid-area: zona1;
+    overflow: visible;
+}
+
+.zona2{
+    background: var(--extra2);
+    grid-area: zona2;
+    overflow: visible;
+}
+
+.zona3{
+    background: var(--justblue);
+    grid-area: zona3;
+    overflow: visible;
+}
+
+.zona4{
+    background: var(--justblue);
+    grid-area: zona4;
+    overflow: visible;
+}
+
+.zona5{
+    background: var(--justblue);
+    grid-area: zona5;
+    overflow: visible;
+}
+
+.zona6{
+    background: var(--justblue);
+    grid-area: zona6;
+    overflow: visible;
+}
+
+.zona7{
+    background: var(--justblue);
+    grid-area: zona7;
+    overflow: visible;
+}
+
+.zona8{
+    background: var(--extra2);
+    grid-area: zona8;
+    overflow: visible;
+}
+
+.footer{
+    background: var(--centerblue);
+}
+
+
+
+/* Positionare a imaginilor in prezentare*/
+
+#logos{
+    border: 0.2em solid var(--grayblue);
+    width: 68%;
+}
+
+
+/* Stilizare hr */
+.separator{
+    height: 20px;
+    width: auto;
+    border-radius: 40px;
+    background-image: repeating-linear-gradient(var(--darkblue),
+                                                var(--darkblue) 3px,
+                                                var(--lightblue) 3px,
+                                                var(--lightblue) 6px);
+}
+
+
+/* Buton back to top */
+.triangle{
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 13px solid var(--darkblue);
+    bottom: 11px;
+    transition: border-bottom-color 300ms, bottom 300ms;
+    position: absolute;
+    left: 7px;
+}
+
+.figura{
+    display: flex;
+    height: 33px;
+    opacity: 0.5;
+    border: 3px solid var(--darkblue);
+    border-bottom: solid transparent;
+    border-top: solid transparent;
+    border-radius: 30px;
+    position: fixed;
+    width: 40px;
+    bottom: 10px;
+    right: 18px;
+    
+}
+
+.figura:hover{
+    opacity: 1;
+}
+
+.figura:hover .tooltiptext{
+    visibility: visible;
+}
+
+.figura:hover .triangle{
+    border-bottom-color: var(--lightblue);
+    bottom:14px;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 6em;
+  background: var(--extra1);
+  color: var(--extra2);
+  text-align: center;
+  border-radius: 6em;
+  position: absolute;
+  bottom: 0.5em;
+  right: 120%;
+}
+
+#banner{
+    display: none;
+}
+
+/* Stilizare hr */
+.separator{
+    height: 20px;
+    width: auto;
+    border-radius: 40px;
+    background-image: repeating-linear-gradient(var(--darkblue),
+                                                var(--darkblue) 3px,
+                                                var(--lightblue) 3px,
+                                                var(--lightblue) 6px);
+}
+
+main{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-areas:
+    "zona1 zona1 zona1"
+    "zona2 zona2 zona2"
+    "zona3 zona3 zona4"
+    "zona5 zona6 zona7"
+    "zona8 zona8 zona8"
+    "gal gal gal";
+    overflow: visible;
+    grid-column-gap: 0.3em;
+    grid-row-gap: 0.6em;
+}
+
+#titlu{
+    grid-area: title;
+}
+#ghid_text{
+    grid-area: ghid_text;
+    text-align: center;
+}
+.tab{
+    grid-area: tab;
+    text-align: center;
+    margin-right: 200px;
+    margin-bottom: 20px;
+}
+
+.tab a{
+    text-decoration:none;
+    width:100px;
+    display:inline-block;
+    border: 3px solid transparent;
+    border-bottom: none;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    background-image: var(--justblue);
+    color:var(--extra1);
+    transition: background-color 0.5s linear;
+    box-shadow: 0px -3px 10px 1px var(--centerblue);
+    text-align: center;
+    margin-top: 20px;
+}
+
+.tab a+a{  
+    margin-left: 20px;
+}
+
+.tab a:hover{
+    background-color: var(--lightblue);
+}
+
+#IF{
+    border: 8px solid var(--centerblue);
+    width: 460px;
+    height: 315px;
+    grid-area: iframe;
+}
+
+.zona8{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-areas: 
+    "title"
+    "ghid_text"
+    "tab";
+    text-align: center;
+}
+
+#galerie{
+    grid-area: gal;
+}
+
+#watermark{
+    display:none;
+}
+
+#galerie{
+    background-color: #326EE4;
+    width: 100%;
+    margin: 0;
+    display: grid;
+    text-align: center;
+    grid-gap: 10px;
+    grid-template-columns: 420px 420px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left:0;
+}
+
+.gallery1{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#spatiere{
+    display: none;
+}
+
+#gallery0{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}

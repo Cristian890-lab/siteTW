@@ -1,0 +1,301 @@
+@import "nav.css";
+/*Paleta De Culori*/
+:root{
+    --darkblue:#163063;
+    --lightblue:#789EE8;
+    --centerblue:#326EE4;
+    --grayblue:#344463;
+    --justblue:#2754B0;
+    --extra1: black;
+    --extra2: white;
+    --extra3: gray;
+}
+
+html{
+    font-size: 17px;
+    background-color: var(--extra3);
+}
+
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    min-width:330px;
+}
+
+h1{
+    font-size: 2.5rem;
+}
+
+/* Grid */
+
+header{
+    background: var(--justblue);
+}
+.zona1{
+    background: var(--extra2);
+    grid-area: zona1;
+}
+
+.zona2{
+    background: var(--extra2);
+    grid-area: zona2;
+}
+
+.zona3{
+    background: var(--justblue);
+    grid-area: zona3;
+}
+
+.zona4{
+    background: var(--justblue);
+    grid-area: zona4;
+}
+
+.zona5{
+    background: var(--justblue);
+    grid-area: zona5;
+}
+
+.zona6{
+    background: var(--justblue);
+    grid-area: zona6;
+}
+
+.zona7{
+    background: var(--justblue);
+    grid-area: zona7;
+}
+
+.zona8{
+    background: var(--extra2);
+    grid-area: zona8;
+}
+
+.footer{
+    background: var(--centerblue);
+}
+
+main{
+    display: grid;
+    grid-template-areas:
+    "zona1 zona1 zona1 zona1"
+    "zona2 zona2 zona3 zona3"
+    "zona2 zona2 zona4 zona4"
+    "zona5 zona6 zona6 zona7"
+    "zona8 zona8 zona8 zona8"
+    "gal gal gal gal";
+    overflow: hidden;
+    grid-column-gap: 0.3em;
+    grid-row-gap: 0.6em;
+}
+  
+#galerie{
+    grid-area: gal;
+}
+
+
+
+/* Positionare a imaginilor in prezentare*/
+
+#logos{
+    border: 0.2em solid var(--grayblue);
+    width: 50%;
+}
+
+/* Stilizare hr */
+.separator{
+    height: 20px;
+    width: auto;
+    border-radius: 40px;
+    background-image: repeating-linear-gradient(var(--darkblue),
+                                                var(--darkblue) 3px,
+                                                var(--lightblue) 3px,
+                                                var(--lightblue) 6px);
+}
+
+/* Buton back to top */
+.triangle{
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 13px solid var(--darkblue);
+    bottom: 11px;
+    transition: border-bottom-color 300ms, bottom 300ms;
+    position: absolute;
+    left: 7px;
+}
+
+.figura{
+    display: flex;
+    height: 33px;
+    opacity: 0.5;
+    border: 3px solid var(--darkblue);
+    border-bottom: solid transparent;
+    border-top: solid transparent;
+    border-radius: 30px;
+    position: fixed;
+    width: 40px;
+    bottom: 10px;
+    right: 18px;
+    
+}
+
+.figura:hover{
+    opacity: 1;
+}
+
+.figura:hover .tooltiptext{
+    visibility: visible;
+}
+
+.figura:hover .triangle{
+    border-bottom-color: var(--lightblue);
+    bottom:14px;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 6em;
+  background: var(--extra1);
+  color: var(--extra2);
+  text-align: center;
+  border-radius: 6em;
+  position: absolute;
+  bottom: 0.5em;
+  right: 120%;
+}
+
+/* Animatie banner */
+
+@keyframes banner_style {
+    0%{left:-100%; visibility: visible;}
+    25%{background-color: var(--lightblue);border-color: var(--centerblue);left:-50%}
+    50%{background-color: var(--centerblue);border-color: var(--lightblue);left: 0%}
+    100%{background-color: var(--lightblue);border-color: var(--centerblue);left:0}
+}
+
+#banner{
+    border: 0.4rem solid var(--darkblue);
+    visibility: hidden;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left:0.4rem;
+    text-align: center;
+    background: var(--darkblue);
+    animation: banner_style 10s linear;
+} 
+  
+/* Stilizare tabel */
+
+.zona2{
+    justify-items: center;
+    align-items: center;
+}
+
+.table{
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 95%;
+    margin: 20px;
+    color: var(--extra2);
+}
+
+.table th,.table td{
+    padding: 1px;
+}
+  
+.table tr{
+    background: var(--darkblue);
+}
+  
+.table tr:nth-child(even){background-color: var(--justblue);}
+  
+.table .data:hover {background-color: var(--lightblue);}
+
+.table tr:first-child th:last-child{
+    border-top-right-radius: 10px;
+}
+  
+.table tr:first-child th:first-child{
+    border-top-left-radius: 10px;
+}
+
+/* Counter in table*/
+
+table {
+    width: 50%;
+    counter-reset: row-num -1;
+}
+
+table tr {
+    counter-increment: row-num;
+}
+
+table tr td:first-child::before {
+      content: counter(row-num) ". ";
+}
+
+table tr td:last-child::before{
+    content: none;
+}
+
+/* Stilizare tab-uri*/
+
+#titlu{
+    grid-area: title;
+}
+#ghid_text{
+    grid-area: ghid_text;
+}
+.tab{
+    grid-area: tab;
+    text-align: center;
+    margin-right: 200px;
+    margin-bottom: 20px;
+}
+
+.tab a{
+    text-decoration:none;
+    width:100px;
+    display:inline-block;
+    border: 3px solid transparent;
+    border-bottom: none;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    background-image: var(--justblue);
+    color:var(--extra1);
+    transition: background-color 0.5s linear;
+    box-shadow: 0px -3px 10px 1px var(--centerblue);
+    text-align: center;
+    margin-top: 20px;
+}
+
+.tab a+a{  
+    margin-left: 20px;
+}
+
+.tab a:hover{
+    background-color: var(--lightblue);
+}
+
+#IF{
+    border: 8px solid var(--centerblue);
+    width: 560px;
+    height: 315px;
+    grid-area: iframe;
+}
+
+.zona8{
+    display: grid;
+    grid-template-areas: 
+    "title tab"
+    "ghid_text tab";
+    text-align: center;
+}
+
+#watermark{
+    display:none;
+}
+

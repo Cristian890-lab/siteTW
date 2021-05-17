@@ -1,0 +1,65 @@
+{
+  "cale_galerie":"resurse/imagini/galerie",
+  "imagini": [
+    {
+      "cale_imagine":"imagine.jpg",
+      "titlu":"Nume imagine1",
+      "descriere":"text descriere",
+      "sfert_ora":"1"
+    },
+    {
+      "cale_imagine":"imagine2.webp",
+      "titlu":"Nume imagine2",
+      "descriere":"text descriere",
+      "sfert_ora":"1"
+    },
+    {
+      "cale_imagine":"imagine3.jpg",
+      "titlu":"Nume imagine3",
+      "descriere":"text descriere",
+      "sfert_ora":"4"
+    },
+    {
+      "cale_imagine":"imagine4.jpg",
+      "titlu":"Nume imagine4",
+      "descriere":"text descriere",
+      "sfert_ora":"1"
+    },
+    {
+      "cale_imagine":"imagine5.jpg",
+      "titlu":"Nume imagine5",
+      "descriere":"text descriere",
+      "sfert_ora":"4"
+    },
+    {
+      "cale_imagine":"imagine6.jpg",
+      "titlu":"Nume imagine6",
+      "descriere":"text descriere",
+      "sfert_ora":"4"
+    },
+    {
+      "cale_imagine":"imagine7.jpg",
+      "titlu":"Nume imagine7",
+      "descriere":"text descriere",
+      "sfert_ora":"4"
+    },
+    {
+      "cale_imagine":"imagine8.jpg",
+      "titlu":"Nume imagine8",
+      "descriere":"text descriere",
+      "sfert_ora":"3"
+    },
+    {
+      "cale_imagine":"imagine9.jpg",
+      "titlu":"Nume imagine9",
+      "descriere":"text descriere",
+      "sfert_ora":"4"
+    },
+    {
+      "cale_imagine":"imagine10.jpg",
+      "titlu":"Nume imagine",
+      "descriere":"text descriere",
+      "sfert_ora":"1"
+    }
+  ]
+}
