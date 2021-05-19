@@ -2,6 +2,7 @@
     <%var how_many_photos=0;%>
     <h3 id="gal-animat0">Gallery</h3>
     <div id="galerie2" class="galerie">
+        <div class="grid_2col">
     <% for (let imag of locals.imagini){
     if(how_many_photos<9 && imag.titlu.length<15){%>
         <figure class="gal-animat1">
@@ -14,5 +15,6 @@
     <%how_many_photos++;
     }
     }%>
+        </div>
     </div>
 </section>

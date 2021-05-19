@@ -20,9 +20,23 @@ app.get("/index", function(req,res){
     res.render("pagini/index", {ip:req.connection.remoteAddress,imagini:vector});
 });
 
+app.get("*/galeria-animata.css",function(req,res){
+    res.setHeader("Content-Type","text/css");
+    exec("sass resurse/sass/galeria-animata.scss temp/galeria-animata.css",(error, stderr, stdout) => {
+        if (error) {
+            return;
+        }
+        if (stderr) {
+            return;
+        }
+        console.log('');
+        res.sendFile(path.join(__dirname,"temp/galeria-animata.css"));
+    });
+});
+
 app.get("/NewParts", function(req,res){
     let vector = verificaImagini();
-    res.render("pagini/galerie-animata", {ip:req.connection.remoteAddress,imagini:vector});
+    res.render("pagini/galerie-animata.ejs", {ip:req.connection.remoteAddress,imagini:vector});
 });
 
 app.get("/TopDeals", function(req,res){
