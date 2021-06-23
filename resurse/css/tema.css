@@ -1,0 +1,19 @@
+.dark-mode-toggle:hover {
+    background-color: red;
+}
+
+.dark-mode-toggle {
+    display: flex;
+    position: absolute;
+    top: 4%;
+    left: 39%;
+    color: black;
+    border: 2px solid cornflowerblue;
+    padding: 6px;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 30px;
+    height: 30px;
+    transition: background-color 1s;
+}

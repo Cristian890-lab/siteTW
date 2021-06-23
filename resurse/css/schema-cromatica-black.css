@@ -1,0 +1,22 @@
+*{
+    --darkblue:#0B1832;
+    --lightblue:#1A4396;
+    --centerblue:#10347C;
+    --grayblue:#1A2232;
+    --justblue:#132A58;
+    --extra1:white;
+    --extra2:black;
+    --extra3:darkgray;
+}
+
+body {
+    background-color: var(--extra3);
+}
+.fa-moon {
+    visibility: visible !important;
+    position: relative !important;
+}
+.fa-sun {
+    visibility: hidden;
+    position: absolute;
+}

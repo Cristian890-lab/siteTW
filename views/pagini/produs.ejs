@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <%- include("../fragmente/meta")%>
+        <link href="/resurse/css/general-mare.css" rel="stylesheet" type="text/css">
+        <link href="/resurse/css/general-mediu.css" rel="stylesheet" type="text/css" media="screen and (max-width:1200px)">
+        <link href="/resurse/css/general-mic.css" rel="stylesheet" type="text/css" media="screen and (max-width:500px)">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+        <link rel="stylesheet" media="print" href="/resurse/css/print.css">
+        <link rel="stylesheet" href="/resurse/css/produs.css">
+        <title>AutoShop</title>
+    </head>
+    <body>
+        <%- include("../fragmente/header")%>
+        <main>
+            <section class="all">
+                <figure>
+                    <section>
+                        <h2><%- locals.produse.nume%></h2>
+                        <picture <%- locals.produse.id%>>
+                            <img class="iamgine" src=<%-locals.produse.img %> alt="<%locals.produse.nume%>" title="<%locals.produse.descriere%>">
+                        </picture>
+                        <p><b>Manufacturer:</b> <%if(locals.produse.marca == null){%> none <%}else{%> <%-locals.produse.marca%> <%}%></p>
+                        <p><b>Description:</b><%- locals.produse.descriere%></p>
+                    </section>
+                    <section>
+                        <p><%if(locals.produse.reducere ==null){%>
+                                <a><b>1. Price:</b> <%- locals.produse.pret%> RON</a>
+                            <%}else{%>
+                            <a><b>1. Price:</b> <s><%-locals.produse.pret%> RON</s> /</a>
+                            <a><b>Sale:</b> <a id="sale"><%-locals.produse.reducere%> RON</a></a> <%}%>
+                        </p>
+                        <p><b>2. Color:</b> <%if(locals.produse.culoare == null){%>
+                                <a>none</a><%}else{%>
+                            <a><%-locals.produse.culoare%></a><%}%>
+                        </p>
+                        <p><b>3. Measurments:</b><%if(locals.produse.dimensiuni == null){%>
+                                <a>not determined</a><%}else{%>
+                            <a><%-locals.produse.dimensiuni%></a><%}%>
+                        </p>
+                        <p><b>4. Sale available until:</b><%if(locals.produse.expira_oferta == null){%>
+                        <p><a>not on sale</a></p>
+                            <%}else{const monthNames = ["Ianuarie", "Februarie", "Martie", "Aprilie", "Mai", "Iunie",
+                                "Iulie", "August", "Septembrie", "Octombrie", "Noiembrie", "Decembrie"];
+                                const weekday = ["Luni", "Marti", "Miercuri", "Joi", "Vineri", "Sambata", "Duminica"];
+                                var date = new Date(locals.produse.expira_oferta);
+                                var day = date.getDate();
+                                var month = monthNames[date.getMonth()];
+                                var year = date.getFullYear();
+                                var zi = weekday[date.getDay()];%>
+                            <p><time><%- day%>-<%- month%>-<%- year%>[<%- zi%>]</time><%}%></p>
+                            </p>
+                            <p><b>5. In Stock:</b> <%if(locals.produse.stock == true){%>
+                                    <a> available</a> <%}else{%>
+                                    <a> not available</a> <%}%>
+                            </p>
+                        </section>
+                    </figure>
+            </section>
+        </main>
+        <%- include("../fragmente/footer")%>
+    </body>
+</html>

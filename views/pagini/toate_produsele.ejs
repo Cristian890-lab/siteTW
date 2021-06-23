@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <%- include("../fragmente/meta")%>
+        <link href="/resurse/css/general-mare.css" rel="stylesheet" type="text/css">
+        <link href="/resurse/css/general-mediu.css" rel="stylesheet" type="text/css" media="screen and (max-width:1200px)">
+        <link href="/resurse/css/general-mic.css" rel="stylesheet" type="text/css" media="screen and (max-width:500px)">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+        <link rel="stylesheet" href="/resurse/css/produse.css">
+        <title>AutoShop</title>
+    </head>
+    <body>
+        <%- include("../fragmente/header")%>
+            <main>
+                <h2 id="Title">Produse</h2>
+                <section class="tot">
+                    <% for (let imag of locals.produse){%>
+                        <article>
+                            <a class="afara" href="/produs/<%-imag.id%>">
+                            <h3><%- imag.nume%></h3>
+                            <figure class="produs">
+                                <section>
+                                    <p><b>Manufacturer:</b> <%if(imag.marca == null){%> none <%}else{%> <%-imag.marca%> <%}%></p>
+                                    <picture <%- imag.id%>>
+                                        <img class="iamgine" src=<%-imag.img %> alt="<%imag.nume%>" title="<%imag.descriere%>">
+                                    </picture>
+                                    <p><b>Description:</b><%- imag.descriere%></p>
+                                </section>
+                                <section>
+                                    <br><br><br><br><br><br><br>
+                                    <p><%if(imag.reducere ==null){%>
+                                        <a><b>1. Price:</b> <%- imag.pret%> RON</a>
+                                        <%}else{%>
+                                        <a><b>1. Price:</b> <s><%-imag.pret%> RON</s> /</a>
+                                        <a><b>Sale:</b> <a id="sale"><%-imag.reducere%> RON</a></a> <%}%>
+                                    </p>
+                                    <p><b>2. Color:</b> <%if(imag.culoare == null){%>
+                                        <a>none</a><%}else{%>
+                                        <a><%-imag.culoare%></a><%}%>
+                                    </p>
+                                    <p><b>3. Measurments:</b><%if(imag.dimensiuni == null){%>
+                                        <a>not determined</a><%}else{%>
+                                        <a><%-imag.dimensiuni%></a><%}%>
+                                    </p>
+                                    <p><b>4. Sale available until:</b><%if(imag.expira_oferta == null){%>
+                                        <p><a>not on sale</a></p>
+                                        <%}else{const monthNames = ["Ianuarie", "Februarie", "Martie", "Aprilie", "Mai", "Iunie",
+                                                                                       "Iulie", "August", "Septembrie", "Octombrie", "Noiembrie", "Decembrie"];
+                                                const weekday = ["Luni", "Marti", "Miercuri", "Joi", "Vineri", "Sambata", "Duminica"];
+                                                var date = new Date(imag.expira_oferta);
+                                                var day = date.getDate();
+                                                var month = monthNames[date.getMonth()];
+                                                var year = date.getFullYear();
+                                                var zi = weekday[date.getDay()];%>
+                                        <p><time><%- day%>-<%- month%>-<%- year%>[<%- zi%>]</time><%}%></p>
+                                    </p>
+                                    <p><b>5. In Stock:</b> <%if(imag.stock == true){%>
+                                        <a> available</a> <%}else{%>
+                                        <a> not available</a> <%}%>
+                                    </p>
+                                </section>
+                            </figure>
+                            </a>
+                        </article>
+                    <%}%>
+                </section>
+            </main>
+        <%- include("../fragmente/footer")%>
+    </body>
+</html>

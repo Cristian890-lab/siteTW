@@ -1,0 +1,16 @@
+h2,picture{
+    position: relative;
+    left:10%;
+}
+p{
+    position: relative;
+    bottom:75%;
+    left: 63%;
+}
+main{
+    background-color: var(--centerblue);
+}
+
+.all{
+    grid-template-columns: 45% 45%;
+}
