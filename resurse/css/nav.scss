@@ -1,14 +1,3 @@
-:root {
-  --darkblue:#163063;
-  --lightblue:#789EE8;
-  --centerblue:#326EE4;
-  --grayblue:#344463;
-  --justblue:#2754B0;
-  --extra1:black;
-  --extra2:white;
-  --extra3:gray;
-}
-
 #ecasa {
   color: var(--extra1);
   transition: font-size 300ms;
@@ -107,7 +96,7 @@
   }
 }
 
-#magazin:hover .submeniu {
+.magazin:hover .submeniu {
   display: grid;
 }
 

@@ -2,13 +2,42 @@ const express=require('express');
 const fs=require('fs');
 const sharp=require('sharp');
 const {exec} = require("child_process");
-
 const app = express();
 const path = require("path");
+const {Client} = require("pg");
 app.set("view engine","ejs");
 app.use("/resurse", express.static(path.join(__dirname,"resurse") ) );
 
+const client = new Client({
+    host: 'localhost',
+    user: 'postgres',
+    password: 'Cristian2',
+    database: 'site',
+    port: 8080
+})
+client.connect();
 
+var vec= new Array();
+vec[1]=4;
+vec[2]=9;
+vec[3]=16;
+
+
+
+app.get("/AllProducts",function(req,res){
+    client.query(
+        "SELECT * from produse",function(err,rez){
+            res.render("pagini/toate_produsele",{produse:rez.rows})
+        }
+    );
+});
+
+app.get("/produs/:id",function(req,res){
+    client.query(
+        "SELECT * from produse where id="+req.params.id,function(err,rez){
+            res.render("pagini/produs",{produse:rez.rows[0]})
+        });
+});
 
 app.get("/", function(req,res){
     let vector = verificaImagini();
@@ -20,23 +49,9 @@ app.get("/index", function(req,res){
     res.render("pagini/index", {ip:req.connection.remoteAddress,imagini:vector});
 });
 
-app.get("*/galeria-animata.css",function(req,res){
-    res.setHeader("Content-Type","text/css");
-    exec("sass resurse/sass/galeria-animata.scss temp/galeria-animata.css",(error, stderr, stdout) => {
-        if (error) {
-            return;
-        }
-        if (stderr) {
-            return;
-        }
-        console.log('');
-        res.sendFile(path.join(__dirname,"temp/galeria-animata.css"));
-    });
-});
-
 app.get("/NewParts", function(req,res){
-    let vector = verificaImagini();
-    res.render("pagini/galerie-animata.ejs", {ip:req.connection.remoteAddress,imagini:vector});
+    let vectImagini=verificaImagini();
+    res.render("pagini/galerie-animata", {ip:req.connection.remoteAddress,imagini:vectImagini});
 });
 
 app.get("/TopDeals", function(req,res){
@@ -78,7 +93,8 @@ function verificaImagini(){
     var textFisier=fs.readFileSync("resurse/json/galerie.json")
     var jsi=JSON.parse(textFisier);
     var caleGalerie=jsi.cale_galerie;
-    let vectorCai=[]
+    let counter=0;
+    let vectorCai=[];
     for(let im of jsi.imagini){
         var imVeche= path.join(caleGalerie, im.cale_imagine);
         var ext= path.extname(im.cale_imagine);
@@ -101,13 +117,13 @@ function verificaImagini(){
                     if(err)
                         console.log("eroare conversie",imVeche,"->",imNouaMare,err);
                 });
-
         vectorCai.push({mare:"/"+imNouaMare,mic:"/"+imNoua,titlu:im.titlu,sfert_ora:im.sfert_ora,text_descriere:im.descriere});
     }
     return vectorCai;
-
 }
 
 
-app.listen(8080);
+
+
+app.listen(808);
 console.log("merge, are picioare");

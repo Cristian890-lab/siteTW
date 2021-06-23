@@ -14,9 +14,12 @@
 html{
     font-size: 17px;
     background-color: var(--extra3);
+    text-decoration-color: var(--extra1);
 }
 
-
+*{
+    color: var(--extra1);
+}
 body{
     font-family: Arial, Helvetica, sans-serif;
     min-width:330px;

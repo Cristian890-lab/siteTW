@@ -1,5 +1,5 @@
 #galerie{
-    background-color: #326EE4;*
+    background-color: var(--centerblue);
     width: 100%;
     margin: 0;
     display: grid;
