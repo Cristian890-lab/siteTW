@@ -16,7 +16,7 @@ p{
 }
 
 #ghid{
-    background-color: #326EE4;
+    background-color: var(--centerblue);
     width: 200%;
     margin-top: 15px;
     margin-bottom: -50px;

@@ -1,6 +1,6 @@
 #Title{
     position: relative;
-    left:15%;
+    left:10%;
 }
 .afara{
     text-decoration: none;
@@ -9,7 +9,9 @@
 #sale{
     color: red;
 }
-
+.produs_{
+    display: block;
+}
 main{
     background-color: var(--centerblue);
     display: flex;
@@ -31,7 +33,9 @@ h3{
     right:0;
 
 }
-
+b{
+    color: var(--darkblue);
+}
 .produs{
     border: 4px solid var(--justblue);
     background-color: var(--lightblue);
@@ -48,4 +52,70 @@ h3{
 
 .sale{
     color: red;
+}
+
+.rotunduri{
+    margin-left: 12.3%;
+}
+.rotunduri-text{
+    margin-left: 1%;
+}
+#filtrare > *{
+    position: relative;
+    left:5%;
+}
+#filtrare{
+    border: 5px solid var(--darkblue);
+    border-radius: 15px;
+    width:20%;
+    position: relative;
+    left: 2%;
+    display: none;
+}
+.filters{
+    width:5%;
+    position: relative;
+    left:3%;
+    margin-bottom: -0.5%;
+    color: var(--extra1);
+    border: 2px solid var(--grayblue);
+    background-color: transparent;
+}
+
+.filters:hover{
+    border: 2px solid var(--darkblue);
+    background-color: var(--extra3);
+}
+
+#filtru{
+    width:25%;
+}
+#sortCrescNume{
+    width:25%;
+}
+#sortDescrescNume{
+    width: 25%;
+}
+#calcul{
+    width: 51.3%;
+}
+#resetare{
+    width:25%
+}
+
+
+input{
+    background-color: var(--extra2);
+}
+
+option{
+    background-color: var(--extra2);
+}
+
+textarea{
+    background-color: var(--extra2);
+}
+
+option{
+    color: var(--extra1);
 }

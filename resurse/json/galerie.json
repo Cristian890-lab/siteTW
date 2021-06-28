@@ -2,64 +2,202 @@
   "cale_galerie":"resurse/imagini/galerie",
   "imagini": [
     {
-      "cale_imagine":"imagine.jpg",
-      "titlu":"Nume imagine1",
-      "descriere":"text descriere",
-      "sfert_ora":"1"
-    },
-    {
-      "cale_imagine":"imagine2.webp",
-      "titlu":"Nume imagine2",
-      "descriere":"text descriere",
-      "sfert_ora":"1"
-    },
-    {
-      "cale_imagine":"imagine3.jpg",
-      "titlu":"Nume imagine3",
+      "cale_imagine":"2007-Subaru-Impreza-WRX-STI.jpg",
+      "titlu":"Subaru Impreza WRX STI",
       "descriere":"text descriere",
       "sfert_ora":"4"
     },
     {
-      "cale_imagine":"imagine4.jpg",
-      "titlu":"Nume imagine4",
+      "cale_imagine":"acura_integra_type-r.jpg",
+      "titlu":"Acura Integra Type-R",
       "descriere":"text descriere",
-      "sfert_ora":"1"
+      "sfert_ora":"4"
     },
     {
-      "cale_imagine":"imagine5.jpg",
-      "titlu":"Nume imagine5",
+      "cale_imagine":"honda-civic.jpg",
+      "titlu":"Honda Civic",
+      "descriere":"text descriere",
+      "sfert_ora":"4"
+    },
+    {
+      "cale_imagine":"lexus-sc-40.jpg",
+      "titlu":"Lexus SC400",
+      "descriere":"text descriere",
+      "sfert_ora":"4"
+    },
+    {
+      "cale_imagine":"1-22-Ferrari-1.jpg",
+      "titlu":"Ferrari F40",
+      "descriere":"text descriere",
+      "sfert_ora":"4"
+    },
+    {
+      "cale_imagine":"Mazda-mx-5-miata.jpg",
+      "titlu":"Mazda Miata",
+      "descriere":"text descriere",
+      "sfert_ora":"4"
+    },
+    {
+      "cale_imagine":"Mitsubishi-Eclipse.jpg",
+      "titlu":"Mitsubishi Eclipse",
+      "descriere":"text descriere",
+      "sfert_ora":"4"
+    },
+    {
+      "cale_imagine":"nissan_240sx.jpg",
+      "titlu":"Nissan 240sx",
+      "descriere":"text descriere",
+      "sfert_ora":"4"
+    },
+    {
+      "cale_imagine":"Nissan-300ZX-Turbo.jpg",
+      "titlu":"Nissan 300zx",
+      "descriere":"text descriere",
+      "sfert_ora":"4"
+    },
+    {
+      "cale_imagine":"Toyota-Corolla.jpg",
+      "titlu":"Toyota Corolla",
+      "descriere":"text descriere",
+      "sfert_ora":"4"
+    },
+    {
+      "cale_imagine":"mustang-cobra-r.jpg",
+      "titlu":"Mustang Cobra-R",
+      "descriere":"text descriere",
+      "sfert_ora":"3"
+    },
+    {
+      "cale_imagine":"Chevrolet-Impala.jpg",
+      "titlu":"Chevrolet-Impala",
       "descriere":"text descriere",
       "sfert_ora":"3"
     },
     {
       "cale_imagine":"imagine6.jpg",
-      "titlu":"Nume imagine6",
+      "titlu":"Dacia 1300",
       "descriere":"text descriere",
       "sfert_ora":"3"
+    },
+    {
+      "cale_imagine":"1-22-Mercedes-Benz-Wagon-1.jpg",
+      "titlu":"Mercedez-Benz 300TD Wagon",
+      "descriere":"text descriere",
+      "sfert_ora":"3"
+    },
+    {
+      "cale_imagine":"6e0c74bb530e13baa672ac46b6c87c3d-1.jpg",
+      "titlu":"Chevy Corvette",
+      "descriere":"text descriere",
+      "sfert_ora":"3"
+    },
+    {
+      "cale_imagine":"1-22-Lincoln-Mark-Continental-1.jpg",
+      "titlu":"Lincoln Mark VI Continental",
+      "descriere":"text descriere",
+      "sfert_ora":"3"
+    },
+    {
+      "cale_imagine":"TU-TheLegendaryMR2.jpg",
+      "titlu":"Toyota MR2",
+      "descriere":"text descriere",
+      "sfert_ora":"3"
+    },
+    {
+      "cale_imagine":"is-that-a-mk4-toyota-supra-why-yes-and-will-set-you-back-91000-157015_1.jpg",
+      "titlu":"Toyota Supra",
+      "descriere":"text descriere",
+      "sfert_ora":"3"
+    },
+    {
+      "cale_imagine":"Audi-Quattro1.jpg",
+      "titlu":"Audi Quattro",
+      "descriere":"text descriere",
+      "sfert_ora":"3"
+    },
+    {
+      "cale_imagine":"1987-bmw-e30-m3-photo-365390-s-986x6031.jpg",
+      "titlu":"BMW E30",
+      "descriere":"text descriere",
+      "sfert_ora":"3"
+    },
+    {
+      "cale_imagine":"imagine.jpg",
+      "titlu":"Dacia Spring",
+      "descriere":"text descriere",
+      "sfert_ora":"1"
+    },
+    {
+      "cale_imagine":"imagine2.jpg",
+      "titlu":"BMW 825",
+      "descriere":"text descriere",
+      "sfert_ora":"1"
+    },
+    {
+      "cale_imagine":"imagine3.jpg",
+      "titlu":"BMW M4",
+      "descriere":"text descriere",
+      "sfert_ora":"1"
+    },
+    {
+      "cale_imagine":"imagine4.jpg",
+      "titlu":"Audi A7",
+      "descriere":"text descriere",
+      "sfert_ora":"1"
+    },
+    {
+      "cale_imagine":"imagine5.jpg",
+      "titlu":"Bugatti Veyron",
+      "descriere":"text descriere",
+      "sfert_ora":"1"
+    },
+    {
+      "cale_imagine":"550cbf03ecad04de2c7c008a.jpg",
+      "titlu":"Aston Martin",
+      "descriere":"text descriere",
+      "sfert_ora":"1"
     },
     {
       "cale_imagine":"imagine7.jpg",
-      "titlu":"Nume imagine7",
+      "titlu":"Ford Mustang",
       "descriere":"text descriere",
-      "sfert_ora":"3"
+      "sfert_ora":"1"
     },
     {
       "cale_imagine":"imagine8.jpg",
-      "titlu":"Nume imagine8",
+      "titlu":"Mercede-Benz G Class",
       "descriere":"text descriere",
-      "sfert_ora":"3"
+      "sfert_ora":"1"
     },
     {
       "cale_imagine":"imagine9.jpg",
-      "titlu":"Nume imagine9",
+      "titlu":"BMW M3 Competitive",
       "descriere":"text descriere",
-      "sfert_ora":"3"
+      "sfert_ora":"1"
     },
     {
       "cale_imagine":"imagine10.jpg",
-      "titlu":"Nume imagine",
+      "titlu":"Porsche 911",
       "descriere":"text descriere",
       "sfert_ora":"1"
+    },
+    {
+      "cale_imagine":"ford-gt_1.jpg",
+      "titlu":"Ford GT",
+      "descriere":"text descriere",
+      "sfert_ora":"2"
+    },
+    {
+      "cale_imagine":"huracan-evo-.jpg",
+      "titlu":"Lamborghini Huracán Evo",
+      "descriere":"text descriere",
+      "sfert_ora":"2"
+    },
+    {
+      "cale_imagine":"mclaren-720s_0.jpg",
+      "titlu":"McLaren 720S",
+      "descriere":"text descriere",
+      "sfert_ora":"2"
     }
   ]
 }

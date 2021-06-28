@@ -1,16 +1,18 @@
 h2,picture{
     position: relative;
-    left:10%;
-}
-p{
-    position: relative;
-    bottom:75%;
-    left: 63%;
 }
 main{
     background-color: var(--centerblue);
 }
-
-.all{
-    grid-template-columns: 45% 45%;
+.iamgine{
+    border: 5px solid var(--extra1);
+}
+.side{
+    border: 5px solid var(--extra1);
+    position: absolute;
+    top:33%;
+    left:30%;
+}
+.side>*{
+    margin: 10px;
 }

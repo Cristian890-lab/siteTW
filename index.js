@@ -17,11 +17,11 @@ const client = new Client({
 })
 client.connect();
 
+var marca=["audi", "bmw", "mercedes-benz", "hyundai", "kia", "volvo", "jaguar", "mazda", "volkswagen"];
 var vec= new Array();
 vec[1]=4;
 vec[2]=9;
 vec[3]=16;
-
 
 
 app.get("/AllProducts",function(req,res){
@@ -32,12 +32,24 @@ app.get("/AllProducts",function(req,res){
     );
 });
 
-app.get("/produs/:id",function(req,res){
+app.get("/AllProducts/:marca",function(req,res){
+    let conditie = req.params.marca ? "and marca ='"+req.params.marca+"'" : "";
+    client.query(
+        "SELECT * from produse where 1=1"+conditie,function(err,rez){
+            res.render("pagini/toate_produsele",{produse:rez.rows});
+        }
+    );
+});
+app.get("/Produs/:id",function(req,res){
     client.query(
         "SELECT * from produse where id="+req.params.id,function(err,rez){
-            res.render("pagini/produs",{produse:rez.rows[0]})
+            res.render("pagini/produs",{produsele:rez.rows[0]})
         });
 });
+
+
+
+
 
 app.get("/", function(req,res){
     let vector = verificaImagini();
@@ -50,7 +62,8 @@ app.get("/index", function(req,res){
 });
 
 app.get("/NewParts", function(req,res){
-    let vectImagini=verificaImagini();
+    aux=Math.floor(Math.random()*3+1)
+    let vectImagini=verificaImagini2(aux);
     res.render("pagini/galerie-animata", {ip:req.connection.remoteAddress,imagini:vectImagini});
 });
 
@@ -122,6 +135,47 @@ function verificaImagini(){
     return vectorCai;
 }
 
+
+function verificaImagini2(aux){
+    var textFisier=fs.readFileSync("resurse/json/galerie.json") //citeste tot fisierul
+    var jsi=JSON.parse(textFisier); //am transformat in obiect
+    var caleGalerie=jsi.cale_galerie;
+    //minutul actual
+    var d = new Date();
+    var n = d.getMinutes();
+    let vectImagini=[]
+    let counter=0;
+
+    for (let im of jsi.imagini){
+        var imVeche= path.join(caleGalerie, im.cale_imagine);//obtin claea completa (im.fisier are doar numele fisierului din folderul caleGalerie)
+        var ext = path.extname(im.cale_imagine);//obtin extensia
+        var numeFisier =path.basename(im.cale_imagine,ext)//obtin numele fara extensie
+        let imMica = path.join(caleGalerie+"/mic/"+ numeFisier+"-200"+".webp");
+        let imMedie = path.join(caleGalerie+"/mediu/"+ numeFisier+"-350"+".webp");
+        counter++;
+        vectImagini.push({mare:imVeche, mic:imMica, mediu:imMedie,descriere:im.descriere});
+
+        //adauga in vector un element
+        if (!fs.existsSync(imMica))//daca nu exista imaginea, mai jos o voi crea
+            sharp(imVeche)
+                .resize(150) //daca dau doar width(primul param) atunci height-ul e proportional
+                .toFile(imMica, function(err) {
+                    if(err)
+                        console.log("eroare conversie",imVeche, "->", imMica, err);
+                });
+        if(!fs.existsSync(imMedie))
+            sharp(imVeche)
+                .resize(350)
+                .toFile(imMedie, function(err){
+                    if(err)
+                        console.group("eroare conversie", imVeche, "->",imMedie, err);
+                });
+        if (counter == vec[aux]){
+            break;
+        }
+    }
+    return vectImagini;
+}
 
 
 

@@ -8,38 +8,111 @@
         <link href="/resurse/css/general-mic.css" rel="stylesheet" type="text/css" media="screen and (max-width:500px)">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
         <link rel="stylesheet" href="/resurse/css/produse.css">
+        <script src="/resurse/js/filtre.js"></script>
         <title>AutoShop</title>
     </head>
     <body>
         <%- include("../fragmente/header")%>
             <main>
-                <h2 id="Title">Produse</h2>
+                <h2 id="Title">Products</h2>
+                <button onclick="vision()" class="filters">Filters</button>
+                <script>
+                    function vision() {
+                        document.getElementById("filtrare").style.display = 'block';
+                    }
+                </script>
+                <section id="filtrare">
+                   <label> Search: <input id="i_text" type="text" value=""> </label>
+                   <br>
+                   <label> Price:
+                       <em id="minrange">1</em>
+                       <input id="i_range" type="range" min="1" max="4000" step="1" value="3999" oninput="document.getElementById('rangeValLabel').innerHTML = this.value;">
+                       <em id="maxrange">4000</em> (<em id="rangeValLabel" style="font-style: normal;"></em>)
+                   </label>
+                    <br>
+                    <label> In Stock?:<input id="i_check1" name="gr_chck" value="true" type="checkbox"/> </label>
+                    <br>
+                        <label>Type:
+                            <input id="i_rad1" checked name="gr_rad" value="toate" type="radio"/>
+                        </label><a class="rotunduri-text">All</a>
+                        <%var contor=2;%>
+                        <%var tip=["OE", "OEM", "NRF", "aftermarket", "JBM"]%>
+                        <% for( let imag of tip) { %>
+                            <br>
+                            <label class="rotunduri">
+                                <input  id="i_rad<%-contor%>" name="gr_rad" value="<%-imag%>" type="radio"/>
+                                <%contor++;%>
+                            </label><a class="rotunduri-text"><%- imag %></a>
+                        <% } %>
+                    <br>
+                    <label>Description: <br/>
+                        <textarea id="i_textarea" placeholder=""></textarea>
+                    </label>
+                    <br>
+                    <label>Color:
+                        <select id="inp-categorie">
+                            <option value="all" selected>all</option>
+                            <%var culori1=[];
+                              for( let c of locals.produse){
+                                  if( c.culoare !=null){
+                                      culori1.push(c.culoare);
+                              }}
+                              var culori = new Set(culori1); %>
+                            <% for(let c of culori){ %>
+                                <option value="<%-c%>"><%-c%></option>
+                            <%}%>
+                        </select>
+                    </label>
+                    <br>
+                    <label>Measurments(EXCLUDE): <br/>
+                        <select id="i_sel_multiplu" multiple size="5">
+                            <option value="all" selected>all</option>
+                            <br>
+                            <option value="0" >one</option>
+                            <option value="1" >two</option>
+                            <option value="2" >three</option>
+                            <option value="4" >not determined</option>
+                        </select>
+                    </label>
+                    <br><br>
+                    <button class="filters" id="filtru">Filter</button>
+                    <button class="filters" id="resetare" >Reset</button>
+                    <br>
+                    <button class="filters" id="sortCrescNume">Ascending</button>
+                    <button class="filters" id="sortDescrescNume">Ascending</button>
+                    <br>
+                    <button class="filters" id="calcul">Average Sale</button>
+                    <p id="p-suma"></p>
+
+                </section>
                 <section class="tot">
                     <% for (let imag of locals.produse){%>
-                        <article>
-                            <a class="afara" href="/produs/<%-imag.id%>">
-                            <h3><%- imag.nume%></h3>
+                        <article class="produs_">
+                            <a class="afara" href="/Produs/<%-imag.id%>">
+                            <h3 class="nume"><%- imag.nume%></h3>
                             <figure class="produs">
                                 <section>
                                     <p><b>Manufacturer:</b> <%if(imag.marca == null){%> none <%}else{%> <%-imag.marca%> <%}%></p>
+                                    <p><b>Tip: </b> <b class="tip"><%-imag.tip%></b></p></p>
                                     <picture <%- imag.id%>>
                                         <img class="iamgine" src=<%-imag.img %> alt="<%imag.nume%>" title="<%imag.descriere%>">
                                     </picture>
-                                    <p><b>Description:</b><%- imag.descriere%></p>
+                                    <p><b>Description:</b> <b class="descriere" style="text-decoration: none"><%-imag.descriere%></b></p>
+                                    <p><b>ID: ar_ent_</b><%- imag.id%></p>
                                 </section>
                                 <section>
                                     <br><br><br><br><br><br><br>
                                     <p><%if(imag.reducere ==null){%>
-                                        <a><b>1. Price:</b> <%- imag.pret%> RON</a>
+                                        <a><b>1. Price:</b> <a class="pret"><%- imag.pret%></a> RON</a>
                                         <%}else{%>
-                                        <a><b>1. Price:</b> <s><%-imag.pret%> RON</s> /</a>
+                                        <a><b>1. Price:</b> <s><a class="pret" class="pretcalculare"><%- imag.pret%></a> RON</s> /</a>
                                         <a><b>Sale:</b> <a id="sale"><%-imag.reducere%> RON</a></a> <%}%>
                                     </p>
                                     <p><b>2. Color:</b> <%if(imag.culoare == null){%>
-                                        <a>none</a><%}else{%>
-                                        <a><%-imag.culoare%></a><%}%>
+                                        <a class="culoare">none</a><%}else{%>
+                                        <a class="culoare"><%-imag.culoare%></a><%}%>
                                     </p>
-                                    <p><b>3. Measurments:</b><%if(imag.dimensiuni == null){%>
+                                    <p><b>3. Measurments:</b> <a class="dimensiuni" style="display: none"> <%-imag.dimensiuni%></a><%if(imag.dimensiuni == null){%>
                                         <a>not determined</a><%}else{%>
                                         <a><%-imag.dimensiuni%></a><%}%>
                                     </p>
@@ -55,7 +128,7 @@
                                                 var zi = weekday[date.getDay()];%>
                                         <p><time><%- day%>-<%- month%>-<%- year%>[<%- zi%>]</time><%}%></p>
                                     </p>
-                                    <p><b>5. In Stock:</b> <%if(imag.stock == true){%>
+                                    <p><b>5. In Stock:</b> <a class="stock" style="display: none"><%-imag.stock%></a> <%if(imag.stock == true){%>
                                         <a> available</a> <%}else{%>
                                         <a> not available</a> <%}%>
                                     </p>

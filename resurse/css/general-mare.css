@@ -160,8 +160,8 @@ main{
 .tooltiptext {
   visibility: hidden;
   width: 6em;
-  background: var(--extra1);
-  color: var(--extra2);
+  background: var(--extra2);
+  color: var(--extra1);
   text-align: center;
   border-radius: 6em;
   position: absolute;

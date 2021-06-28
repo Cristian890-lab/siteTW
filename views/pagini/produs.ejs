@@ -17,41 +17,42 @@
             <section class="all">
                 <figure>
                     <section>
-                        <h2><%- locals.produse.nume%></h2>
-                        <picture <%- locals.produse.id%>>
-                            <img class="iamgine" src=<%-locals.produse.img %> alt="<%locals.produse.nume%>" title="<%locals.produse.descriere%>">
+                        <a href="/AllProducts" style="text-decoration: none; border: 3px solid var(--darkblue);}"> <- Go Back</a>
+                        <h2><%- locals.produsele.nume%></h2>
+                        <p><b>Manufacturer:</b> <%if(locals.produsele.marca == null){%> none <%}else{%> <%-locals.produsele.marca%> <%}%> & <b>Tip: </b> <%-locals.produsele.tip%></p>
+                        <picture <%- locals.produsele.id%>>
+                            <img class="iamgine" src=<%-locals.produsele.img %> alt="<%locals.produsele.nume%>" title="<%locals.produsele.descriere%>">
                         </picture>
-                        <p><b>Manufacturer:</b> <%if(locals.produse.marca == null){%> none <%}else{%> <%-locals.produse.marca%> <%}%></p>
-                        <p><b>Description:</b><%- locals.produse.descriere%></p>
+                        <p><b>Description:</b><%- locals.produsele.descriere%></p>
                     </section>
-                    <section>
-                        <p><%if(locals.produse.reducere ==null){%>
-                                <a><b>1. Price:</b> <%- locals.produse.pret%> RON</a>
+                    <section class="side">
+                        <p><%if(locals.produsele.reducere ==null){%>
+                                <a><b>1. Price:</b> <%- locals.produsele.pret%> RON</a>
                             <%}else{%>
-                            <a><b>1. Price:</b> <s><%-locals.produse.pret%> RON</s> /</a>
-                            <a><b>Sale:</b> <a id="sale"><%-locals.produse.reducere%> RON</a></a> <%}%>
+                            <a><b>1. Price:</b> <s style="color: red"><%-locals.produsele.pret%> RON</s> /</a>
+                            <a><b>Sale:</b> <a id="sale"><%-locals.produsele.reducere%> RON</a></a> <%}%>
                         </p>
-                        <p><b>2. Color:</b> <%if(locals.produse.culoare == null){%>
+                        <p><b>2. Color:</b> <%if(locals.produsele.culoare == null){%>
                                 <a>none</a><%}else{%>
-                            <a><%-locals.produse.culoare%></a><%}%>
+                            <a><%-locals.produsele.culoare%></a><%}%>
                         </p>
-                        <p><b>3. Measurments:</b><%if(locals.produse.dimensiuni == null){%>
+                        <p><b>3. Measurments:</b><%if(locals.produsele.dimensiuni == null){%>
                                 <a>not determined</a><%}else{%>
-                            <a><%-locals.produse.dimensiuni%></a><%}%>
+                            <a><%-locals.produsele.dimensiuni%></a><%}%>
                         </p>
-                        <p><b>4. Sale available until:</b><%if(locals.produse.expira_oferta == null){%>
+                        <p><b>4. Sale available until:</b><%if(locals.produsele.expira_oferta == null){%>
                         <p><a>not on sale</a></p>
                             <%}else{const monthNames = ["Ianuarie", "Februarie", "Martie", "Aprilie", "Mai", "Iunie",
                                 "Iulie", "August", "Septembrie", "Octombrie", "Noiembrie", "Decembrie"];
                                 const weekday = ["Luni", "Marti", "Miercuri", "Joi", "Vineri", "Sambata", "Duminica"];
-                                var date = new Date(locals.produse.expira_oferta);
+                                var date = new Date(locals.produsele.expira_oferta);
                                 var day = date.getDate();
                                 var month = monthNames[date.getMonth()];
                                 var year = date.getFullYear();
                                 var zi = weekday[date.getDay()];%>
                             <p><time><%- day%>-<%- month%>-<%- year%>[<%- zi%>]</time><%}%></p>
                             </p>
-                            <p><b>5. In Stock:</b> <%if(locals.produse.stock == true){%>
+                            <p><b>5. In Stock:</b> <%if(locals.produsele.stock == true){%>
                                     <a> available</a> <%}else{%>
                                     <a> not available</a> <%}%>
                             </p>

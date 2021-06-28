@@ -1,5 +1,5 @@
 .dark-mode-toggle:hover {
-    background-color: red;
+    background-color: var(--extra2);
 }
 
 .dark-mode-toggle {

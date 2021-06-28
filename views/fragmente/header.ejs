@@ -3,31 +3,31 @@
     <button id="dark-mode-toggle" class="dark-mode-toggle"><i class="fas fa-moon"></i> <i class="fas fa-sun"></i></button>
     <q style="font-size:19px">Toate drumurile patriei duc la service-ul auto</q>
 </header>
-
+<%var marca=["audi", "bmw", "mercedes-benz", "hyundai", "kia", "volvo", "jaguar", "mazda", "volkswagen"]%>
 <label id="hamburger" for="ch-menu">
     <i class="fa fa-bars"></i>
 </label>
 <nav class="menu">
     <input id="ch-menu" type="checkbox">
     <ul class="meniu">
-        <li> <button class="button_menu"><a href="/index"><i id="ecasa" class="fa fa-home" aria-hidden="false"></i><a id="ascundema">Main Page</a></a></button></li>
+        <li> <button class="button_menu"><a href="/index"><i id="ecasa" class="fa fa-home" aria-hidden="false"></i><a id="ascundema" href="/index">Main Page</a></a></button></li>
         <li class="magazin">
-            <button class="button_menu" ><a href="/Shop">Shop</a></button>
+            <button class="button_menu" ><a href="/AllProducts">Products</a></button>
             <ul class="submeniu">
-                <li class="subuton"><a href="/TopDeals">Top Deals</a></li>
-                <li class="subuton"><a href="/NewParts">New Parts</a></li>
-                <li class="subuton"><a href="/JunkYard">Junk Yard</a></li>
+                <%for(let m of marca){%>
+                        <li class="subuton"><a href="/AllProducts/<%-m%>"><%- m%></a></li>
+                <%}%>
             </ul>
         </li>
         <li class="magazin">
-            <button class="button_menu" ><a href="/Shop">Products</a></button>
+            <button class="button_menu" ><a>Galeries</a></button>
             <ul class="submeniu">
-                <li class="subuton"><a href="/AllProducts">All</a></li>
+                <li class="subuton"><a href="/TopDeals">Gallery</a></li>
+                <li class="subuton"><a href="/NewParts">Animated Gallery</a></li>
             </ul>
         </li>
         <li><button class="button_menu"><a href="/Service">Service</a></button></li>
         <li><button class="button_menu"><a href="/Guide">Maintenance Guide</a></button></li>
         <li><button class="button_menu"><a href="/Description">Description</a></button></li>
-        <li><button class="button_menu"><a href="/CheckOut">Check Out</a></button></li>
     </ul>
 </nav>
