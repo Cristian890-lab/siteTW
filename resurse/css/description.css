@@ -1,0 +1,9 @@
+main{
+    background-color: var(--lightblue);
+}
+
+section{
+    position: relative;
+    text-align: center;
+    left:20%;
+}
